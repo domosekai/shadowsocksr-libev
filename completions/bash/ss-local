@@ -30,4 +30,4 @@ _ss_local()
     return 0
 }
 
-complete -F _ss_local ss-local
+complete -F _ss_local ssr-local

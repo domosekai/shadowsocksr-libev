@@ -1,5 +1,5 @@
 /*
- * obfs.h - Define shadowsocksR server's buffers and callbacks
+ * obfs.h - Define shadowsocksrR server's buffers and callbacks
  *
  * Copyright (C) 2015 - 2016, Break Wa11 <mmgac001@gmail.com>
  */

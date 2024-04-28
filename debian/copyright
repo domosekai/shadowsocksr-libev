@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: shadowsocks-libev
+Upstream-Name: shadowsocksr-libev
 Upstream-Contact: Max Lv <max.c.lv@gmail.com>
-Source: https://github.com/shadowsocks/shadowsocks-libev
+Source: https://github.com/shadowsocksr/shadowsocksr-libev
 
 Files: *
 Copyright: 2013-2015, Clow Windy <clowwindy42@gmail.com>
@@ -81,7 +81,7 @@ Copyright: 2011-2012, Dustin Lundquist <dustin@null-ptr.net>
            2011, Manuel Kasper <mk@neon1.net>
 License: BSD-2-clause
 
-Files: src/ss-nat
+Files: src/ssr-nat
 Copyright: 2015, OpenWrt-dist
            2015, Jian Chang <aa65535@live.com>
 License: GPL-3+

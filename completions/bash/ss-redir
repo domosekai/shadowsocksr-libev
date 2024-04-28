@@ -27,4 +27,4 @@ _ss_redir()
     return 0
 }
 
-complete -F _ss_redir ss-redir
+complete -F _ss_redir ssr-redir

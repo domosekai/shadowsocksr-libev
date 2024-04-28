@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# Script to run Shadowsocks in daemon mode at boot time.
+# Script to run Shadowsocksr in daemon mode at boot time.
 # ScriptAuthor: icyboy
 # Revision 1.0 - 14th Sep 2013
 #====================================================================
 # Run level information:
 # chkconfig: 2345 99 99
 # Description: lightweight secured socks5 proxy
-# processname: ss-server
+# processname: ssr-server
 # Author: Max Lv <max.c.lv@gmail.com>;
-# Run "/sbin/chkconfig --add shadowsocks" to add the Run levels.
+# Run "/sbin/chkconfig --add shadowsocksr" to add the Run levels.
 #====================================================================
 
 #====================================================================
@@ -23,12 +23,12 @@
 [ ${NETWORKING} ="yes" ] || exit 0
 
 # Daemon
-NAME=shadowsocks-server
-DAEMON=/usr/bin/ss-server
+NAME=shadowsocksr-server
+DAEMON=/usr/bin/ssr-server
 
 # Path to the configuration file.
 #
-CONF=/etc/shadowsocks-libev/config.json
+CONF=/etc/shadowsocksr-libev/config.json
 
 #USER="nobody"
 #GROUP="nobody"
@@ -46,7 +46,7 @@ fi
 
 # Path to the lock file.
 #
-LOCK_FILE=/var/lock/subsys/shadowsocks
+LOCK_FILE=/var/lock/subsys/shadowsocksr
 
 # Path to the pid file.
 #
@@ -60,7 +60,7 @@ PID=/var/run/$NAME/pid
 
 RETVAL=0
 
-# Start shadowsocks as daemon.
+# Start shadowsocksr as daemon.
 #
 start() {
 if [ -f $LOCK_FILE ]; then
@@ -80,7 +80,7 @@ return $RETVAL
 }
 
 
-# Stop shadowsocks.
+# Stop shadowsocksr.
 #
 stop() {
 echo -n $"Shutting down ${NAME}: "

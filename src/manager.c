@@ -1,22 +1,22 @@
 /*
- * server.c - Provide shadowsocks service
+ * server.c - Provide shadowsocksr service
  *
  * Copyright (C) 2013 - 2016, Max Lv <max.c.lv@gmail.com>
  *
- * This file is part of the shadowsocks-libev.
+ * This file is part of the shadowsocksr-libev.
  *
- * shadowsocks-libev is free software; you can redistribute it and/or modify
+ * shadowsocksr-libev is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * shadowsocks-libev is distributed in the hope that it will be useful,
+ * shadowsocksr-libev is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with shadowsocks-libev; see the file COPYING. If not, see
+ * along with shadowsocksr-libev; see the file COPYING. If not, see
  * <http://www.gnu.org/licenses/>.
  */
 
@@ -73,7 +73,7 @@
 #endif
 
 int verbose          = 0;
-char *executable     = "ss-server";
+char *executable     = "ssr-server";
 char *working_dir    = NULL;
 int working_dir_size = 0;
 
@@ -99,7 +99,7 @@ build_config(char *prefix, struct server *server)
     int path_size = strlen(prefix) + strlen(server->port) + 20;
 
     path = ss_malloc(path_size);
-    snprintf(path, path_size, "%s/.shadowsocks_%s.conf", prefix, server->port);
+    snprintf(path, path_size, "%s/.shadowsocksr_%s.conf", prefix, server->port);
     FILE *f = fopen(path, "w+");
     if (f == NULL) {
         if (verbose) {
@@ -126,7 +126,7 @@ construct_command_line(struct manager_ctx *manager, struct server *server)
 
     memset(cmd, 0, BUF_SIZE);
     snprintf(cmd, BUF_SIZE,
-             "%s -m %s --manager-address %s -f %s/.shadowsocks_%s.pid -c %s/.shadowsocks_%s.conf",
+             "%s -m %s --manager-address %s -f %s/.shadowsocksr_%s.pid -c %s/.shadowsocksr_%s.conf",
              executable, manager->method, manager->manager_address,
              working_dir, server->port, working_dir, server->port);
 
@@ -342,7 +342,7 @@ stop_server(char *prefix, char *port)
     char *path = NULL;
     int pid, path_size = strlen(prefix) + strlen(port) + 20;
     path = ss_malloc(path_size);
-    snprintf(path, path_size, "%s/.shadowsocks_%s.pid", prefix, port);
+    snprintf(path, path_size, "%s/.shadowsocksr_%s.pid", prefix, port);
     FILE *f = fopen(path, "r");
     if (f == NULL) {
         if (verbose) {
@@ -853,7 +853,7 @@ main(int argc, char **argv)
     const char *homedir = pw->pw_dir;
     working_dir_size = strlen(homedir) + 15;
     working_dir      = ss_malloc(working_dir_size);
-    snprintf(working_dir, working_dir_size, "%s/.shadowsocks", homedir);
+    snprintf(working_dir, working_dir_size, "%s/.shadowsocksr", homedir);
 
     int err = mkdir(working_dir, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
     if (err != 0 && errno != EEXIST) {

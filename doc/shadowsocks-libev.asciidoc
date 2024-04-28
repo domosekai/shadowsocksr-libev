@@ -1,35 +1,35 @@
-shadowsocks-libev(8)
+shadowsocksr-libev(8)
 ====================
 
 NAME
 ----
-shadowsocks-libev - a lightweight and secure socks5 proxy
+shadowsocksr-libev - a lightweight and secure socks5 proxy
 
 SYNOPSIS
 --------
-*ss-local*|*ss-redir*|*ss-server*|*ss-tunnel*|*ss-manager*
+*ssr-local*|*ssr-redir*|*ssr-server*|*ssr-tunnel*|*ssr-manager*
  [-s <server_host>] [-p <server_port>] [-l <local_port>] [-k <password>]
  [-m <encrypt_method>] [-f <pid_file>] [-t <timeout>] [-c <config_file>]
 
 DESCRIPTION
 -----------
-*Shadowsocks-libev* is a lightweight and secure socks5 proxy.
-It is a port of the original shadowsocks created by clowwindy.
-*Shadowsocks-libev* is written in pure C and takes advantage of *libev*
+*Shadowsocksr-libev* is a lightweight and secure socks5 proxy.
+It is a port of the original shadowsocksr created by clowwindy.
+*Shadowsocksr-libev* is written in pure C and takes advantage of *libev*
 to achieve both high performance and low resource consumption.
 
-*Shadowsocks-libev* consists of five components. One is `ss-server`(1)
+*Shadowsocksr-libev* consists of five components. One is `ssr-server`(1)
 that runs on a remote server to provide secured tunnel service.
-`ss-local`(1) and `ss-redir`(1) are clients on your local machines to proxy
+`ssr-local`(1) and `ssr-redir`(1) are clients on your local machines to proxy
 traffic(TCP/UDP or both).
-`ss-tunnel`(1) is a tool for local port forwarding.
+`ssr-tunnel`(1) is a tool for local port forwarding.
 
-While `ss-local`(1) works as a standard socks5 proxy, `ss-redir`(1) works
+While `ssr-local`(1) works as a standard socks5 proxy, `ssr-redir`(1) works
 as a transparent proxy and requires netfilter's NAT module. For more
 information, check out the 'EXAMPLE' section.
 
-`ss-manager`(1) is a controller for multi-user management and traffic
-statistics, using UNIX domain socket to talk with `ss-server`(1).
+`ssr-manager`(1) is a controller for multi-user management and traffic
+statistics, using UNIX domain socket to talk with `ssr-server`(1).
 Also, it provides a UNIX domain socket or IP based API for other software.
 About the details of this API, please refer to the 'PROTOCOL' section.
 
@@ -50,7 +50,7 @@ Set the password. The server and the client should use the same password.
 -m <encrypt_method>::
 Set the cipher.
 +
-*Shadowsocks-libev* accepts 21 different ciphers:
+*Shadowsocksr-libev* accepts 21 different ciphers:
 +
 table, rc4, rc4-md5, aes-128-cfb, aes-192-cfb, aes-256-cfb,
 aes-128-ctr, aes-192-ctr, aes-256-ctr, bf-cfb,
@@ -66,7 +66,7 @@ these ciphers may not work.
 Run as a specific user.
 
 -f <pid_file>::
-Start shadowsocks as a daemon with specific pid file.
+Start shadowsocksr as a daemon with specific pid file.
 
 -t <timeout>::
 Set the socket timeout in seconds. The default value is 60.
@@ -86,7 +86,7 @@ Send traffic through specific network interface.
 +
 For example, there are three interfaces in your device, which is
 lo (127.0.0.1), eth0 (192.168.0.1) and eth1 (192.168.0.2).
-Meanwhile, you configure *shadowsocks-libev* to listen on 0.0.0.0:8388
+Meanwhile, you configure *shadowsocksr-libev* to listen on 0.0.0.0:8388
 and bind to eth1. That results the traffic go out through eth1,
 but not lo nor eth0. This option is useful to control traffic in
 multi-interface environment.
@@ -138,7 +138,7 @@ Specify UNIX domain socket address.
 Only available in server and manager mode.
 
 --executable <path_to_server_executable>::
-Specify the executable path of `ss-server`.
+Specify the executable path of `ssr-server`.
 +
 Only available in manager mode.
 
@@ -179,14 +179,14 @@ The config file equivalent of command line options is listed as example below.
 
 EXAMPLE
 -------
-`ss-redir` requires netfilter's NAT function. Here is an example:
+`ssr-redir` requires netfilter's NAT function. Here is an example:
 
 ....
 # Create new chain
 root@Wrt:~# iptables -t nat -N SHADOWSOCKS
 root@Wrt:~# iptables -t mangle -N SHADOWSOCKS
 
-# Ignore your shadowsocks server's addresses
+# Ignore your shadowsocksr server's addresses
 # It's very IMPORTANT, just be careful.
 root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 123.123.123.123 -j RETURN
 
@@ -202,7 +202,7 @@ root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 192.168.0.0/16 -j RETURN
 root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 224.0.0.0/4 -j RETURN
 root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 240.0.0.0/4 -j RETURN
 
-# Anything else should be redirected to shadowsocks's local port
+# Anything else should be redirected to shadowsocksr's local port
 root@Wrt:~# iptables -t nat -A SHADOWSOCKS -p tcp -j REDIRECT --to-ports 12345
 
 # Add any UDP rules
@@ -214,15 +214,15 @@ root@Wrt:~# iptables -t mangle -A SHADOWSOCKS -p udp --dport 53 -j TPROXY --on-p
 root@Wrt:~# iptables -t nat -A PREROUTING -p tcp -j SHADOWSOCKS
 root@Wrt:~# iptables -t mangle -A PREROUTING -j SHADOWSOCKS
 
-# Start the shadowsocks-redir
-root@Wrt:~# ss-redir -u -c /etc/config/shadowsocks.json -f /var/run/shadowsocks.pid
+# Start the shadowsocksr-redir
+root@Wrt:~# ssr-redir -u -c /etc/config/shadowsocksr.json -f /var/run/shadowsocksr.pid
 ....
 
 PROTOCOL
 --------
-`ss-manager`(1) provides several APIs through UDP protocol::
+`ssr-manager`(1) provides several APIs through UDP protocol::
 
-Send UDP commands in the following format to the manager-address provided to ss-manager(1): ::::
+Send UDP commands in the following format to the manager-address provided to ssr-manager(1): ::::
  command: [JSON data]
 
 To add a port: ::::
@@ -234,15 +234,15 @@ To remove a port: ::::
 To receive a pong: ::::
  ping
 
-Then `ss-manager`(1) will send back the traffic statistics: ::::
+Then `ssr-manager`(1) will send back the traffic statistics: ::::
  stat: {"8001":11370}
 
 SEE ALSO
 --------
-`ss-local`(1),
-`ss-server`(1),
-`ss-tunnel`(1),
-`ss-redir`(1),
-`ss-manager`(1),
+`ssr-local`(1),
+`ssr-server`(1),
+`ssr-tunnel`(1),
+`ssr-redir`(1),
+`ssr-manager`(1),
 `iptables`(8),
-/etc/shadowsocks-libev/config.json
+/etc/shadowsocksr-libev/config.json

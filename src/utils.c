@@ -3,20 +3,20 @@
  *
  * Copyright (C) 2013 - 2016, Max Lv <max.c.lv@gmail.com>
  *
- * This file is part of the shadowsocks-libev.
+ * This file is part of the shadowsocksr-libev.
  *
- * shadowsocks-libev is free software; you can redistribute it and/or modify
+ * shadowsocksr-libev is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * shadowsocks-libev is distributed in the hope that it will be useful,
+ * shadowsocksr-libev is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with shadowsocks-libev; see the file COPYING. If not, see
+ * along with shadowsocksr-libev; see the file COPYING. If not, see
  * <http://www.gnu.org/licenses/>.
  */
 
@@ -257,20 +257,20 @@ void
 usage()
 {
     printf("\n");
-    printf("shadowsocks-libev %s with %s\n\n", VERSION, USING_CRYPTO);
+    printf("shadowsocksr-libev %s with %s\n\n", VERSION, USING_CRYPTO);
     printf(
         "  maintained by Max Lv <max.c.lv@gmail.com> and Linus Yang <laokongzi@gmail.com>\n\n");
     printf("  usage:\n\n");
 #ifdef MODULE_LOCAL
-    printf("    ss-local\n");
+    printf("    ssr-local\n");
 #elif MODULE_REMOTE
-    printf("    ss-server\n");
+    printf("    ssr-server\n");
 #elif MODULE_TUNNEL
-    printf("    ss-tunnel\n");
+    printf("    ssr-tunnel\n");
 #elif MODULE_REDIR
-    printf("    ss-redir\n");
+    printf("    ssr-redir\n");
 #elif MODULE_MANAGER
-    printf("    ss-manager\n");
+    printf("    ssr-manager\n");
 #endif
     printf("\n");
     printf(
@@ -354,7 +354,7 @@ usage()
 #endif
 #ifdef MODULE_MANAGER
     printf(
-        "       [--executable <path>]      Path to the executable of ss-server.\n");
+        "       [--executable <path>]      Path to the executable of ssr-server.\n");
 #endif
     printf(
         "       [--mtu <MTU>]              MTU of your network interface.\n");

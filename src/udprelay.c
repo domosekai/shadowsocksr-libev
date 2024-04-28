@@ -3,20 +3,20 @@
  *
  * Copyright (C) 2013 - 2016, Max Lv <max.c.lv@gmail.com>
  *
- * This file is part of the shadowsocks-libev.
+ * This file is part of the shadowsocksr-libev.
  *
- * shadowsocks-libev is free software; you can redistribute it and/or modify
+ * shadowsocksr-libev is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
- * shadowsocks-libev is distributed in the hope that it will be useful,
+ * shadowsocksr-libev is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with shadowsocks-libev; see the file COPYING. If not, see
+ * along with shadowsocksr-libev; see the file COPYING. If not, see
  * <http://www.gnu.org/licenses/>.
  */
 
@@ -734,7 +734,7 @@ remote_recv_cb(EV_P_ ev_io *w, int revents)
     int len = parse_udprealy_header(buf->array, buf->len, NULL, NULL, &dst_addr);
 
     if (dst_addr.ss_family != AF_INET && dst_addr.ss_family != AF_INET6) {
-        LOGI("[udp] ss-redir does not support domain name");
+        LOGI("[udp] ssr-redir does not support domain name");
         goto CLEAN_UP;
     }
 
@@ -965,21 +965,21 @@ server_recv_cb(EV_P_ ev_io *w, int revents)
      * | 2  |  1   |  1   | Variable |    2     | Variable |
      * +----+------+------+----------+----------+----------+
      *
-     * shadowsocks UDP Request (before encrypted)
+     * shadowsocksr UDP Request (before encrypted)
      * +------+----------+----------+----------+
      * | ATYP | DST.ADDR | DST.PORT |   DATA   |
      * +------+----------+----------+----------+
      * |  1   | Variable |    2     | Variable |
      * +------+----------+----------+----------+
      *
-     * shadowsocks UDP Response (before encrypted)
+     * shadowsocksr UDP Response (before encrypted)
      * +------+----------+----------+----------+
      * | ATYP | DST.ADDR | DST.PORT |   DATA   |
      * +------+----------+----------+----------+
      * |  1   | Variable |    2     | Variable |
      * +------+----------+----------+----------+
      *
-     * shadowsocks UDP Request and Response (after encrypted)
+     * shadowsocksr UDP Request and Response (after encrypted)
      * +-------+--------------+
      * |   IV  |    PAYLOAD   |
      * +-------+--------------+

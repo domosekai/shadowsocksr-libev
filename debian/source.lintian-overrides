@@ -1,4 +1,4 @@
 # false positive: #505857
-shadowsocks-libev source: debian-watch-file-should-mangle-version
+shadowsocksr-libev source: debian-watch-file-should-mangle-version
 # false positive: #765166
-shadowsocks-libev source: license-problem-gfdl-invariants
+shadowsocksr-libev source: license-problem-gfdl-invariants

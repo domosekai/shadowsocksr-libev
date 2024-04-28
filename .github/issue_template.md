@@ -1,6 +1,6 @@
 Please answer these questions before submitting your issue. Thanks!
 
-### What version of shadowsocks-libev are you using?
+### What version of shadowsocksr-libev are you using?
 
 
 ### What operating system are you using?

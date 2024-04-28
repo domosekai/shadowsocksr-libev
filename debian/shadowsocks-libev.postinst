@@ -4,11 +4,11 @@ set -e
 
 case "$1" in
 	configure|reconfigure)
-		if [ ! -f /etc/shadowsocks-libev/config.json ]; then
+		if [ ! -f /etc/shadowsocksr-libev/config.json ]; then
 			passwd=$(apg -n 1 -M ncl)
-			mkdir -p /etc/shadowsocks-libev
-			sed "s/barfoo!/$passwd/" /usr/share/shadowsocks-libev/config.json \
-				> /etc/shadowsocks-libev/config.json
+			mkdir -p /etc/shadowsocksr-libev
+			sed "s/barfoo!/$passwd/" /usr/share/shadowsocksr-libev/config.json \
+				> /etc/shadowsocksr-libev/config.json
 		fi
 		;;
 	abort-upgrade|abort-remove|abort-deconfigure)

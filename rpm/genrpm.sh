@@ -41,8 +41,8 @@ done
 : ${version:=2.5.6}
 : ${format:=tar.gz}
 
-name="shadowsocks-libev"
-spec_name="shadowsocks-libev.spec"
+name="shadowsocksr-libev"
+spec_name="shadowsocksr-libev.spec"
 
 pushd `git rev-parse --show-toplevel`
 git archive "v${version}" --format="${format}" --prefix="${name}-${version}/" -o rpm/SOURCES/"${name}-${version}.${format}"

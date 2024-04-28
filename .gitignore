@@ -13,21 +13,21 @@ config.log
 config.status
 libtool
 pid
-src/ss-*
-!src/ss-nat
+src/ssr-*
+!src/ssr-nat
 stamp-h1
 .libs
 .pc
-debian/shadowsocks-libev/
+debian/shadowsocksr-libev/
 debian/patches/
 debian/files
-debian/shadowsocks-libev.substvars
+debian/shadowsocksr-libev.substvars
 debian/*.debhelper*
 .dirstamp
-shadowsocks-libev.pc
-debian/libshadowsocks-libev*.symbols
+shadowsocksr-libev.pc
+debian/libshadowsocksr-libev*.symbols
 libsodium/src/libsodium/include/sodium/version.h
-rpm/SPECS/shadowsocks-libev.spec
+rpm/SPECS/shadowsocksr-libev.spec
 
 # Ignore per-project vim config
 .vimrc

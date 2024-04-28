@@ -1,12 +1,12 @@
-shadowsocks-libev for Debian
+shadowsocksr-libev for Debian
 ----------------------
 
 The Debian package has added systemd support. A default server service which
-reads the default configuration in /etc/default/shadowsocks-libev is installed
+reads the default configuration in /etc/default/shadowsocksr-libev is installed
 and enabled by default, plus some other service templates placed in
 /lib/systemd/system, which can be used by users later.
 
-Another problem is that shadowsocks-libev is licensed under GPLv3+. This will
+Another problem is that shadowsocksr-libev is licensed under GPLv3+. This will
 conflict with OpenSSL License when linked against OpenSSL library. As a
 result, this package faces licensing problem. Use it at your own risk.
 

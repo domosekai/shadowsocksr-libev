@@ -1,16 +1,16 @@
-# Shadowsocks Dockerized
+# Shadowsocksr Dockerized
 
 ## About this image
 
-This image is built to ease the deployment of the Shadowsocks server daemon with Docker.
+This image is built to ease the deployment of the Shadowsocksr server daemon with Docker.
 
-For Shadowsocks clients, you want to visit http://shadowsocks.org/en/download/clients.html
+For Shadowsocksr clients, you want to visit http://shadowsocksr.org/en/download/clients.html
 
-### What is Shadowsocks
+### What is Shadowsocksr
 
 A secure socks5 proxy designed to protect your Internet traffic.
 
-See http://shadowsocks.org/
+See http://shadowsocksr.org/
 
 ### What is Docker
 
@@ -23,37 +23,37 @@ See https://www.docker.com/
 ### Start the daemon for the first time
 
 ```bash
-$ docker run --name shadowsocks-app --detach --publish 58338:8338 shadowsocks/shadowsocks-libev -k "5ecret!"
+$ docker run --name shadowsocksr-app --detach --publish 58338:8338 shadowsocksr/shadowsocksr-libev -k "5ecret!"
 ```
 
 To publish UDP port for DNS tunnelling, run
 
 ```bash
-$ docker run --name shadowsocks-app --detach --publish 58338:8338 --publish 58338:8338/udp shadowsocks/shadowsocks-libev -k "5ecret!"
+$ docker run --name shadowsocksr-app --detach --publish 58338:8338 --publish 58338:8338/udp shadowsocksr/shadowsocksr-libev -k "5ecret!"
 ```
 
 To see all supported arguments, run
 
 ```bash
-$ docker run --rm shadowsocks/shadowsocks-libev --help
+$ docker run --rm shadowsocksr/shadowsocksr-libev --help
 ```
 
-To try the bleeding edge version of Shadowsocks, run with an `unstable` tag
+To try the bleeding edge version of Shadowsocksr, run with an `unstable` tag
 
 ```bash
-$ docker run --name shadowsocks-app --detach --publish 58338:8338 shadowsocks/shadowsocks-libev:unstable -k "5ecret!"
+$ docker run --name shadowsocksr-app --detach --publish 58338:8338 shadowsocksr/shadowsocksr-libev:unstable -k "5ecret!"
 ```
 
 ### Stop the daemon
 
 ```bash
-$ docker stop shadowsocks-app
+$ docker stop shadowsocksr-app
 ```
 
 ### Start a stopped daemon
 
 ```bash
-$ docker start shadowsocks-app
+$ docker start shadowsocksr-app
 ```
 
 ### Upgrade
@@ -61,7 +61,7 @@ $ docker start shadowsocks-app
 Simply run a `docker pull` to upgrade the image.
 
 ```bash
-$ docker pull shadowsocks/shadowsocks-libev
+$ docker pull shadowsocksr/shadowsocksr-libev
 ```
 
 ### Use in CoreOS
@@ -86,5 +86,5 @@ See [Docker run reference](https://docs.docker.com/reference/run/#expose-incomin
 
 ## References
 
-* [Shadowsocks - Servers](http://shadowsocks.org/en/download/servers.html)
-* [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev/blob/master/README.md)
+* [Shadowsocksr - Servers](http://shadowsocksr.org/en/download/servers.html)
+* [shadowsocksr-libev](https://github.com/shadowsocksr/shadowsocksr-libev/blob/master/README.md)

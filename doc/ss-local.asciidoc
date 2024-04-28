@@ -1,13 +1,13 @@
-ss-local(1)
+ssr-local(1)
 ===========
 
 NAME
 ----
-ss-local - shadowsocks client as socks5 proxy, libev port
+ssr-local - shadowsocksr client as socks5 proxy, libev port
 
 SYNOPSIS
 --------
-*ss-local*
+*ssr-local*
  [-Auv6] [-h|--help]
  [-s <server_host>] [-p <server_port>] [-l <local_port>]
  [-k <password>] [-m <encrypt_method>] [-f <pid_file>]
@@ -17,14 +17,14 @@ SYNOPSIS
 
 DESCRIPTION
 -----------
-*Shadowsocks-libev* is a lightweight and secure socks5 proxy.
-It is a port of the original shadowsocks created by clowwindy.
-*Shadowsocks-libev* is written in pure C and takes advantage of libev to
+*Shadowsocksr-libev* is a lightweight and secure socks5 proxy.
+It is a port of the original shadowsocksr created by clowwindy.
+*Shadowsocksr-libev* is written in pure C and takes advantage of libev to
 achieve both high performance and low resource consumption.
 
-*Shadowsocks-libev* consists of five components. `ss-local`(1) works as a standard
+*Shadowsocksr-libev* consists of five components. `ssr-local`(1) works as a standard
 socks5 proxy on local machines to proxy TCP traffic.
-For more information, check out `shadowsocks-libev`(8).
+For more information, check out `shadowsocksr-libev`(8).
 
 OPTIONS
 -------
@@ -44,7 +44,7 @@ Set the password. The server and the client should use the same password.
 -m <encrypt_method>::
 Set the cipher.
 +
-*Shadowsocks-libev* accepts 21 different ciphers:
+*Shadowsocksr-libev* accepts 21 different ciphers:
 +
 table, rc4, rc4-md5, aes-128-cfb, aes-192-cfb, aes-256-cfb,
 aes-128-ctr, aes-192-ctr, aes-256-ctr, bf-cfb,
@@ -60,7 +60,7 @@ these ciphers may not work.
 Run as a specific user.
 
 -f <pid_file>::
-Start shadowsocks as a daemon with specific pid file.
+Start shadowsocksr as a daemon with specific pid file.
 
 -t <timeout>::
 Set the socket timeout in seconds. The default value is 60.
@@ -68,7 +68,7 @@ Set the socket timeout in seconds. The default value is 60.
 -c <config_file>::
 Use a configuration file.
 +
-Refer to `shadowsocks-libev`(8) 'CONFIG FILE' section for more details.
+Refer to `shadowsocksr-libev`(8) 'CONFIG FILE' section for more details.
 
 -n <number>::
 Specify max number of open files.
@@ -80,7 +80,7 @@ Send traffic through specific network interface.
 +
 For example, there are three interfaces in your device,
 which is lo (127.0.0.1), eth0 (192.168.0.1) and eth1 (192.168.0.2).
-Meanwhile, you configure `ss-local` to listen on 0.0.0.0:8388 and bind to eth1.
+Meanwhile, you configure `ssr-local` to listen on 0.0.0.0:8388 and bind to eth1.
 That results the traffic go out through eth1, but not lo nor eth0.
 This option is useful to control traffic in multi-interface environment.
 
@@ -123,20 +123,20 @@ Print help message.
 
 EXAMPLE
 -------
-`ss-local`(1) can be started from command line and run in foreground.
+`ssr-local`(1) can be started from command line and run in foreground.
 Here is an example:
 ....
-# Start ss-local with given parameters
-ss-local -s example.com -p 12345 -l 1080 -k foobar -m aes-256-cfb
+# Start ssr-local with given parameters
+ssr-local -s example.com -p 12345 -l 1080 -k foobar -m aes-256-cfb
 ....
 
 SEE ALSO
 --------
-`ss-server`(1),
-`ss-tunnel`(1),
-`ss-redir`(1),
-`ss-manager`(1),
-`shadowsocks-libev`(8),
+`ssr-server`(1),
+`ssr-tunnel`(1),
+`ssr-redir`(1),
+`ssr-manager`(1),
+`shadowsocksr-libev`(8),
 `iptables`(8),
-/etc/shadowsocks-libev/config.json
+/etc/shadowsocksr-libev/config.json
 

@@ -1,4 +1,4 @@
-# gfw list rules for shadowsocks-libev $
+# gfw list rules for shadowsocksr-libev $
 # updated on 2016-09-08 12:09:55$
 [bypass_all]
 
@@ -2742,8 +2742,8 @@
 ^(.*\.)?sftuk\.org$
 ^(.*\.)?shadow\.ma$
 ^(.*\.)?shadowsky\.xyz$
-^(.*\.)?shadowsocks\.com$
-^(.*\.)?shadowsocks\.org$
+^(.*\.)?shadowsocksr\.com$
+^(.*\.)?shadowsocksr\.org$
 ^(.*\.)?cn\.shafaqna\.com$
 ^(.*\.)?shahamat-english\.com$
 ^(.*\.)?shambhalasun\.com$

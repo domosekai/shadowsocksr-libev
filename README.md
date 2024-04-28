@@ -1,21 +1,21 @@
-# shadowsocks-libev
+# shadowsocksr-libev
 
 ## Intro
 
-[Shadowsocks-libev](http://shadowsocks.org) is a lightweight secured SOCKS5
+[Shadowsocksr-libev](http://shadowsocksr.org) is a lightweight secured SOCKS5
 proxy for embedded devices and low-end boxes.
 
-It is a port of [Shadowsocks](https://github.com/shadowsocks/shadowsocks)
+It is a port of [Shadowsocksr](https://github.com/shadowsocksr/shadowsocksr)
 created by [@clowwindy](https://github.com/clowwindy), which is maintained by
 [@madeye](https://github.com/madeye) and [@linusyang](https://github.com/linusyang).
 
 Current version: 2.5.6 | [Changelog](debian/changelog)
 
-Travis CI: [![Travis CI](https://travis-ci.org/shadowsocks/shadowsocks-libev.svg?branch=master)](https://travis-ci.org/shadowsocks/shadowsocks-libev)
+Travis CI: [![Travis CI](https://travis-ci.org/shadowsocksr/shadowsocksr-libev.svg?branch=master)](https://travis-ci.org/shadowsocksr/shadowsocksr-libev)
 
 ## Features
 
-Shadowsocks-libev is written in pure C and only depends on
+Shadowsocksr-libev is written in pure C and only depends on
 [libev](http://software.schmorp.de/pkg/libev.html) and
 [OpenSSL](http://www.openssl.org/) or [mbedTLS](https://tls.mbed.org/) or [PolarSSL](https://polarssl.org/).
 
@@ -23,8 +23,8 @@ In normal usage, the memory footprint is about 600KB and the CPU utilization is
 no more than 5% on a low-end router (Buffalo WHR-G300N V2 with a 400MHz MIPS CPU,
 32MB memory and 4MB flash).
 
-For a full list of feature comparison between different versions of shadowsocks,
-refer to the [Wiki page](https://github.com/shadowsocks/shadowsocks/wiki/Feature-Comparison-across-Different-Versions).
+For a full list of feature comparison between different versions of shadowsocksr,
+refer to the [Wiki page](https://github.com/shadowsocksr/shadowsocksr/wiki/Feature-Comparison-across-Different-Versions).
 
 ## Installation
 
@@ -68,7 +68,7 @@ To build against mbedTLS, specify `--with-crypto-library=mbedtls`
 and `--with-mbedtls=/path/to/mbedtls` when running `./configure`.
 
 Windows users will need extra work when compiling mbedTLS library,
-see [this issue](https://github.com/shadowsocks/shadowsocks-libev/issues/422) for detail info.
+see [this issue](https://github.com/shadowsocksr/shadowsocksr-libev/issues/422) for detail info.
 
 ##### PolarSSL (Deprecated)
 
@@ -91,11 +91,11 @@ in the system during compilation and linking.
 
 **Note: The repositories doesn't always contain the latest version. Please build from source if you want the latest version (see below)**
 
-Shadowsocks-libev is available in the official repository for Debian 9("Stretch"), unstable, Ubuntu 16.10 and later derivatives:
+Shadowsocksr-libev is available in the official repository for Debian 9("Stretch"), unstable, Ubuntu 16.10 and later derivatives:
 
 ```bash
 sudo apt update
-sudo apt install shadowsocks-libev
+sudo apt install shadowsocksr-libev
 ```
 
 For Debian Jessie users, please install it from `jessie-backports`:
@@ -103,7 +103,7 @@ For Debian Jessie users, please install it from `jessie-backports`:
 ```bash
 sudo sh -c 'printf "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list'
 sudo apt update
-sudo apt -t jessie-backports install shadowsocks-libev
+sudo apt -t jessie-backports install shadowsocksr-libev
 ```
 
 #### Build deb package from source
@@ -130,26 +130,26 @@ Otherwise, try to build and install directly from source. See the [Linux](#linux
 section below.
 
 ``` bash
-cd shadowsocks-libev
+cd shadowsocksr-libev
 sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev \
     gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc xmlto apg libpcre3-dev
 dpkg-buildpackage -b -us -uc -i
 cd ..
-sudo dpkg -i shadowsocks-libev*.deb
+sudo dpkg -i shadowsocksr-libev*.deb
 ```
 
 #### Configure and start the service
 
 ```
 # Edit the configuration file
-sudo vim /etc/shadowsocks-libev/config.json
+sudo vim /etc/shadowsocksr-libev/config.json
 
 # Edit the default configuration for debian
-sudo vim /etc/default/shadowsocks-libev
+sudo vim /etc/default/shadowsocksr-libev
 
 # Start the service
-sudo /etc/init.d/shadowsocks-libev start    # for sysvinit, or
-sudo systemctl start shadowsocks-libev      # for systemd
+sudo /etc/init.d/shadowsocksr-libev start    # for sysvinit, or
+sudo systemctl start shadowsocksr-libev      # for systemd
 ```
 
 ### Fedora & RHEL
@@ -163,23 +163,23 @@ Supported distributions include
 Enable repo via `dnf`:
 
 ```
-su -c 'dnf copr enable librehat/shadowsocks'
+su -c 'dnf copr enable librehat/shadowsocksr'
 ```
 
-Or download yum repo on [Fedora Copr](https://copr.fedoraproject.org/coprs/librehat/shadowsocks/) and put it inside `/etc/yum.repos.d/`. The release `Epel` is for RHEL and its derivatives.
+Or download yum repo on [Fedora Copr](https://copr.fedoraproject.org/coprs/librehat/shadowsocksr/) and put it inside `/etc/yum.repos.d/`. The release `Epel` is for RHEL and its derivatives.
 
-Then, install `shadowsocks-libev` via `dnf`:
+Then, install `shadowsocksr-libev` via `dnf`:
 
 ```bash
 su -c 'dnf update'
-su -c 'dnf install shadowsocks-libev'
+su -c 'dnf install shadowsocksr-libev'
 ```
 
 or `yum`:
 
 ```bash
 su -c 'yum update'
-su -c 'yum install shadowsocks-libev'
+su -c 'yum install shadowsocksr-libev'
 ```
 ### OpenSUSE
 
@@ -187,7 +187,7 @@ su -c 'yum install shadowsocks-libev'
 Use the following command to install from repository.
 
 ```bash
-sudo zypper install shadowsocks-libev
+sudo zypper install shadowsocksr-libev
 ```
 
 #### Build from source
@@ -201,8 +201,8 @@ sudo zypper install zlib-devel libopenssl-devel
 Then download the source package and compile.
 
 ```bash
-git clone https://github.com/shadowsocks/shadowsocks-libev.git
-cd shadowsocks-libev
+git clone https://github.com/shadowsocksr/shadowsocksr-libev.git
+cd shadowsocksr-libev
 ./configure && make
 sudo make install
 ```
@@ -210,22 +210,22 @@ sudo make install
 ### Archlinux
 
 ```bash
-sudo pacman -S shadowsocks-libev
+sudo pacman -S shadowsocksr-libev
 ```
 
-Please refer to downstream [PKGBUILD](https://projects.archlinux.org/svntogit/community.git/tree/trunk?h=packages/shadowsocks-libev)
+Please refer to downstream [PKGBUILD](https://projects.archlinux.org/svntogit/community.git/tree/trunk?h=packages/shadowsocksr-libev)
 script for extra modifications and distribution-specific bugs.
 
 ### NixOS
 
 ```bash
-nix-env -iA nixos.shadowsocks-libev
+nix-env -iA nixos.shadowsocksr-libev
 ```
 
 ### Nix
 
 ```bash
-nix-env -iA nixpkgs.shadowsocks-libev
+nix-env -iA nixpkgs.shadowsocksr-libev
 ```
 
 ### Linux
@@ -246,28 +246,28 @@ sudo make install
 
 ```bash
 su
-cd /usr/ports/net/shadowsocks-libev
+cd /usr/ports/net/shadowsocksr-libev
 make install
 ```
 
-Edit your config.json file. By default, it's located in /usr/local/etc/shadowsocks-libev.
+Edit your config.json file. By default, it's located in /usr/local/etc/shadowsocksr-libev.
 
-To enable shadowsocks-libev, add the following rc variable to your /etc/rc.conf file:
+To enable shadowsocksr-libev, add the following rc variable to your /etc/rc.conf file:
 
 ```
-shadowsocks_libev_enable="YES"
+shadowsocksr_libev_enable="YES"
 ```
 
-Start the Shadowsocks server:
+Start the Shadowsocksr server:
 
 ```bash
-service shadowsocks_libev start
+service shadowsocksr_libev start
 ```
 
 ### OpenWRT
 
 The OpenWRT project is maintained here:
-[openwrt-shadowsocks](https://github.com/shadowsocks/openwrt-shadowsocks).
+[openwrt-shadowsocksr](https://github.com/shadowsocksr/openwrt-shadowsocksr).
 
 ### OS X
 For OS X, use [Homebrew](http://brew.sh) to install or build.
@@ -277,16 +277,16 @@ Install Homebrew:
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-Install shadowsocks-libev:
+Install shadowsocksr-libev:
 
 ```bash
-brew install shadowsocks-libev
+brew install shadowsocksr-libev
 ```
 
 ### Windows
 
 For Windows, use either MinGW (msys) or Cygwin to build.
-At the moment, only `ss-local` is supported to build against MinGW (msys).
+At the moment, only `ssr-local` is supported to build against MinGW (msys).
 
 If you are using MinGW (msys), please download OpenSSL or PolarSSL source tarball
 to the home directory of msys, and build it like this (may take a few minutes):
@@ -332,7 +332,7 @@ For a detailed and complete list of all supported arguments, you may refer to th
 man pages of the applications, respectively.
 
 ```
-    ss-[local|redir|server|tunnel]
+    ssr-[local|redir|server|tunnel]
 
        -s <server_host>           host name or ip address of your remote server
 
@@ -386,27 +386,27 @@ man pages of the applications, respectively.
        [--manager-address <addr>] UNIX domain socket address
                                   only available in server and manager mode
 
-       [--executable <path>]      path to the executable of ss-server
+       [--executable <path>]      path to the executable of ssr-server
                                   only available in manager mode
 
        [-v]                       verbose mode
 
 notes:
 
-    ss-redir provides a transparent proxy function and only works on the
+    ssr-redir provides a transparent proxy function and only works on the
     Linux platform with iptables.
 
 ```
 
 ## Advanced usage
 
-The latest shadowsocks-libev has provided a *redir* mode. You can configure your Linux-based box or router to proxy all TCP traffic transparently.
+The latest shadowsocksr-libev has provided a *redir* mode. You can configure your Linux-based box or router to proxy all TCP traffic transparently.
 
     # Create new chain
     root@Wrt:~# iptables -t nat -N SHADOWSOCKS
     root@Wrt:~# iptables -t mangle -N SHADOWSOCKS
 
-    # Ignore your shadowsocks server's addresses
+    # Ignore your shadowsocksr server's addresses
     # It's very IMPORTANT, just be careful.
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 123.123.123.123 -j RETURN
 
@@ -422,7 +422,7 @@ The latest shadowsocks-libev has provided a *redir* mode. You can configure your
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 224.0.0.0/4 -j RETURN
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -d 240.0.0.0/4 -j RETURN
 
-    # Anything else should be redirected to shadowsocks's local port
+    # Anything else should be redirected to shadowsocksr's local port
     root@Wrt:~# iptables -t nat -A SHADOWSOCKS -p tcp -j REDIRECT --to-ports 12345
 
     # Add any UDP rules
@@ -436,33 +436,33 @@ The latest shadowsocks-libev has provided a *redir* mode. You can configure your
     root@Wrt:~# iptables -t mangle -A PREROUTING -j SHADOWSOCKS
     root@Wrt:~# iptables -t mangle -A OUTPUT -j SHADOWSOCKS_MARK
 
-    # Start the shadowsocks-redir
-    root@Wrt:~# ss-redir -u -c /etc/config/shadowsocks.json -f /var/run/shadowsocks.pid
+    # Start the shadowsocksr-redir
+    root@Wrt:~# ssr-redir -u -c /etc/config/shadowsocksr.json -f /var/run/shadowsocksr.pid
 
-## Shadowsocks over KCP
+## Shadowsocksr over KCP
 
-It's quite easy to use shadowsocks and [KCP](https://github.com/skywind3000/kcp) together with [kcptun](https://github.com/xtaci/kcptun).
+It's quite easy to use shadowsocksr and [KCP](https://github.com/skywind3000/kcp) together with [kcptun](https://github.com/xtaci/kcptun).
 
-The goal of shadowsocks over KCP is to provide a fully configurable, UDP based protocol to improve poor connections, e.g. a high packet loss 3G network.
+The goal of shadowsocksr over KCP is to provide a fully configurable, UDP based protocol to improve poor connections, e.g. a high packet loss 3G network.
 
 ### Setup your server
 
 ```bash
 server_linux_amd64 -l :21 -t 127.0.0.1:443 --crypt none --mtu 1200 --nocomp --mode normal --dscp 46 &
-ss-server -s 0.0.0.0 -p 443 -k passwd -m chacha20 -u
+ssr-server -s 0.0.0.0 -p 443 -k passwd -m chacha20 -u
 ```
 
 ### Setup your client
 
 ```bash
 client_linux_amd64 -l 127.0.0.1:1090 -r <server_ip>:21 --crypt none --mtu 1200 --nocomp --mode normal --dscp 46 &
-ss-local -s 127.0.0.1 -p 1090 -k passwd -m chacha20 -l 1080 -b 0.0.0.0 &
-ss-local -s <server_ip> -p 443 -k passwd -m chacha20 -l 1080 -U -b 0.0.0.0
+ssr-local -s 127.0.0.1 -p 1090 -k passwd -m chacha20 -l 1080 -b 0.0.0.0 &
+ssr-local -s <server_ip> -p 443 -k passwd -m chacha20 -l 1080 -U -b 0.0.0.0
 ```
 
 ## Security Tips
 
-Although shadowsocks-libev can handle thousands of concurrent connections nicely, we still recommend
+Although shadowsocksr-libev can handle thousands of concurrent connections nicely, we still recommend
 setting up your server's firewall rules to limit connections from each user:
 
     # Up to 32 connections are enough for normal usage

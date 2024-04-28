@@ -34,4 +34,4 @@ _ss_server()
     esac
 }
 
-complete -F _ss_server ss-server
+complete -F _ss_server ssr-server

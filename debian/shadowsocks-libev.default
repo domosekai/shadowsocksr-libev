@@ -1,6 +1,6 @@
-# Defaults for shadowsocks initscript
-# sourced by /etc/init.d/shadowsocks-libev
-# installed at /etc/default/shadowsocks-libev by the maintainer scripts
+# Defaults for shadowsocksr initscript
+# sourced by /etc/init.d/shadowsocksr-libev
+# installed at /etc/default/shadowsocksr-libev by the maintainer scripts
 
 #
 # This is a POSIX shell fragment
@@ -12,7 +12,7 @@
 START=yes
 
 # Configuration file
-CONFFILE="/etc/shadowsocks-libev/config.json"
+CONFFILE="/etc/shadowsocksr-libev/config.json"
 
 # Extra command line arguments
 DAEMON_ARGS="-u"

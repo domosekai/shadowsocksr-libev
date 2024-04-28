@@ -4,9 +4,9 @@ set -e
 
 case "$1" in
 	purge)
-		rm -f /etc/shadowsocks-libev/config.json
-		test -f /etc/shadowsocks-libev/* \
-			|| rm -r /etc/shadowsocks-libev/
+		rm -f /etc/shadowsocksr-libev/config.json
+		test -f /etc/shadowsocksr-libev/* \
+			|| rm -r /etc/shadowsocksr-libev/
 		;;
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 		exit 0

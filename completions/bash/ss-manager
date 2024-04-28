@@ -38,4 +38,4 @@ _ss_manager()
     return 0
 }
 
-complete -F _ss_manager ss-manager
+complete -F _ss_manager ssr-manager

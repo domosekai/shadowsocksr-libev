@@ -108,7 +108,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = shadowsocks-libev.pc
+CONFIG_CLEAN_FILES = shadowsocksr-libev.pc
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -197,7 +197,7 @@ CTAGS = ctags
 CSCOPE = cscope
 DIST_SUBDIRS = libsodium libcork libipset libudns libev src doc
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
-	$(srcdir)/shadowsocks-libev.pc.in $(top_srcdir)/auto/ar-lib \
+	$(srcdir)/shadowsocksr-libev.pc.in $(top_srcdir)/auto/ar-lib \
 	$(top_srcdir)/auto/compile $(top_srcdir)/auto/config.guess \
 	$(top_srcdir)/auto/config.sub $(top_srcdir)/auto/install-sh \
 	$(top_srcdir)/auto/ltmain.sh $(top_srcdir)/auto/missing \
@@ -382,7 +382,7 @@ top_srcdir = @top_srcdir@
 @USE_SYSTEM_SHARED_LIB_TRUE@	$(am__append_1)
 ACLOCAL_AMFLAGS = -I m4
 pkgconfiglibdir = $(libdir)/pkgconfig
-pkgconfiglib_DATA = shadowsocks-libev.pc
+pkgconfiglib_DATA = shadowsocksr-libev.pc
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -435,7 +435,7 @@ $(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-shadowsocks-libev.pc: $(top_builddir)/config.status $(srcdir)/shadowsocks-libev.pc.in
+shadowsocksr-libev.pc: $(top_builddir)/config.status $(srcdir)/shadowsocksr-libev.pc.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:

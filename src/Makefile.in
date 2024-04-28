@@ -98,7 +98,7 @@ host_triplet = @host@
 @USE_SYSTEM_SHARED_LIB_FALSE@am__append_3 = $(top_builddir)/libev/libev.la \
 @USE_SYSTEM_SHARED_LIB_FALSE@                  $(top_builddir)/libsodium/src/libsodium/libsodium.la
 
-bin_PROGRAMS = ss-local$(EXEEXT) $(am__EXEEXT_1)
+bin_PROGRAMS = ssr-local$(EXEEXT) $(am__EXEEXT_1)
 #ss_tunnel_LDADD = $(SS_COMMON_LIBS)
 #ss_server_LDADD = $(SS_COMMON_LIBS)
 #ss_manager_LDADD = $(SS_COMMON_LIBS)
@@ -110,7 +110,7 @@ bin_PROGRAMS = ss-local$(EXEEXT) $(am__EXEEXT_1)
 #ss_server_CFLAGS = $(AM_CFLAGS) -DMODULE_REMOTE
 #ss_manager_CFLAGS = $(AM_CFLAGS) -DMODULE_MANAGER
 @BUILD_WINCOMPAT_TRUE@am__append_6 = win32.c
-@BUILD_REDIRECTOR_TRUE@am__append_7 = ss-redir
+@BUILD_REDIRECTOR_TRUE@am__append_7 = ssr-redir
 @BUILD_REDIRECTOR_TRUE@@USE_SYSTEM_SHARED_LIB_TRUE@am__append_8 = -ludns
 @BUILD_REDIRECTOR_TRUE@@USE_SYSTEM_SHARED_LIB_FALSE@am__append_9 = $(top_builddir)/libudns/libudns.la
 subdir = src
@@ -168,36 +168,36 @@ am__DEPENDENCIES_2 = $(top_builddir)/libipset/libipset.la \
 	$(am__DEPENDENCIES_1) $(am__append_3)
 am__DEPENDENCIES_3 = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
 	$(am__append_5)
-libshadowsocks_libev_la_DEPENDENCIES = $(am__DEPENDENCIES_3)
-am__libshadowsocks_libev_la_SOURCES_DIST = utils.c jconf.c json.c \
+libshadowsocksr_libev_la_DEPENDENCIES = $(am__DEPENDENCIES_3)
+am__libshadowsocksr_libev_la_SOURCES_DIST = utils.c jconf.c json.c \
 	encrypt.c udprelay.c cache.c acl.c netutils.c local.c http.c \
 	tls.c rule.c win32.c
-am__objects_1 = libshadowsocks_libev_la-http.lo \
-	libshadowsocks_libev_la-tls.lo libshadowsocks_libev_la-rule.lo
+am__objects_1 = libshadowsocksr_libev_la-http.lo \
+	libshadowsocksr_libev_la-tls.lo libshadowsocksr_libev_la-rule.lo
 @BUILD_WINCOMPAT_TRUE@am__objects_2 =  \
-@BUILD_WINCOMPAT_TRUE@	libshadowsocks_libev_la-win32.lo
-am__objects_3 = libshadowsocks_libev_la-utils.lo \
-	libshadowsocks_libev_la-jconf.lo \
-	libshadowsocks_libev_la-json.lo \
-	libshadowsocks_libev_la-encrypt.lo \
-	libshadowsocks_libev_la-udprelay.lo \
-	libshadowsocks_libev_la-cache.lo \
-	libshadowsocks_libev_la-acl.lo \
-	libshadowsocks_libev_la-netutils.lo \
-	libshadowsocks_libev_la-local.lo $(am__objects_1) \
+@BUILD_WINCOMPAT_TRUE@	libshadowsocksr_libev_la-win32.lo
+am__objects_3 = libshadowsocksr_libev_la-utils.lo \
+	libshadowsocksr_libev_la-jconf.lo \
+	libshadowsocksr_libev_la-json.lo \
+	libshadowsocksr_libev_la-encrypt.lo \
+	libshadowsocksr_libev_la-udprelay.lo \
+	libshadowsocksr_libev_la-cache.lo \
+	libshadowsocksr_libev_la-acl.lo \
+	libshadowsocksr_libev_la-netutils.lo \
+	libshadowsocksr_libev_la-local.lo $(am__objects_1) \
 	$(am__objects_2)
-am_libshadowsocks_libev_la_OBJECTS = $(am__objects_3)
-libshadowsocks_libev_la_OBJECTS =  \
-	$(am_libshadowsocks_libev_la_OBJECTS)
+am_libshadowsocksr_libev_la_OBJECTS = $(am__objects_3)
+libshadowsocksr_libev_la_OBJECTS =  \
+	$(am_libshadowsocksr_libev_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-libshadowsocks_libev_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+libshadowsocksr_libev_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) \
-	$(libshadowsocks_libev_la_LDFLAGS) $(LDFLAGS) -o $@
-@BUILD_REDIRECTOR_TRUE@am__EXEEXT_1 = ss-redir$(EXEEXT)
+	$(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) \
+	$(libshadowsocksr_libev_la_LDFLAGS) $(LDFLAGS) -o $@
+@BUILD_REDIRECTOR_TRUE@am__EXEEXT_1 = ssr-redir$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 am__ss_local_SOURCES_DIST = utils.c jconf.c json.c encrypt.c \
 	udprelay.c cache.c acl.c netutils.c local.c http.c tls.c \
@@ -271,9 +271,9 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(libshadowsocks_libev_la_SOURCES) $(ss_local_SOURCES) \
+SOURCES = $(libshadowsocksr_libev_la_SOURCES) $(ss_local_SOURCES) \
 	$(ss_redir_SOURCES)
-DIST_SOURCES = $(am__libshadowsocks_libev_la_SOURCES_DIST) \
+DIST_SOURCES = $(am__libshadowsocksr_libev_la_SOURCES_DIST) \
 	$(am__ss_local_SOURCES_DIST) $(am__ss_redir_SOURCES_DIST)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
@@ -441,8 +441,8 @@ AM_CFLAGS = -g -O2 -Wall -Werror -Wno-deprecated-declarations \
 SS_COMMON_LIBS = $(top_builddir)/libipset/libipset.la \
 	$(top_builddir)/libcork/libcork.la $(INET_NTOP_LIB) \
 	$(LIBPCRE_LIBS) $(am__append_2) $(am__append_3)
-#bin_PROGRAMS += ss-tunnel
-#bin_PROGRAMS += ss-server ss-manager
+#bin_PROGRAMS += ssr-tunnel
+#bin_PROGRAMS += ssr-server ssr-manager
 sni_src = http.c \
           tls.c \
           rule.c
@@ -480,7 +480,7 @@ ss_local_LDADD = $(SS_COMMON_LIBS) $(am__append_4) $(am__append_5)
 #ss_server_LDADD += $(top_builddir)/libudns/libudns.la
 ss_local_CFLAGS = $(AM_CFLAGS) -DMODULE_LOCAL
 #ss_tunnel_SOURCES += win32.c
-@BUILD_REDIRECTOR_TRUE@bin_SCRIPTS = ss-nat
+@BUILD_REDIRECTOR_TRUE@bin_SCRIPTS = ssr-nat
 @BUILD_REDIRECTOR_TRUE@ss_redir_SOURCES = utils.c \
 @BUILD_REDIRECTOR_TRUE@                   jconf.c \
 @BUILD_REDIRECTOR_TRUE@                   json.c \
@@ -494,12 +494,12 @@ ss_local_CFLAGS = $(AM_CFLAGS) -DMODULE_LOCAL
 @BUILD_REDIRECTOR_TRUE@ss_redir_CFLAGS = $(AM_CFLAGS) -DMODULE_REDIR
 @BUILD_REDIRECTOR_TRUE@ss_redir_LDADD = $(SS_COMMON_LIBS) \
 @BUILD_REDIRECTOR_TRUE@	$(am__append_8) $(am__append_9)
-lib_LTLIBRARIES = libshadowsocks-libev.la
-libshadowsocks_libev_la_SOURCES = $(ss_local_SOURCES)
-libshadowsocks_libev_la_CFLAGS = $(ss_local_CFLAGS) -DLIB_ONLY
-libshadowsocks_libev_la_LDFLAGS = -version-info $(VERSION_INFO)
-libshadowsocks_libev_la_LIBADD = $(ss_local_LDADD)
-include_HEADERS = shadowsocks.h
+lib_LTLIBRARIES = libshadowsocksr-libev.la
+libshadowsocksr_libev_la_SOURCES = $(ss_local_SOURCES)
+libshadowsocksr_libev_la_CFLAGS = $(ss_local_CFLAGS) -DLIB_ONLY
+libshadowsocksr_libev_la_LDFLAGS = -version-info $(VERSION_INFO)
+libshadowsocksr_libev_la_LIBADD = $(ss_local_LDADD)
+include_HEADERS = shadowsocksr.h
 all: all-am
 
 .SUFFIXES:
@@ -569,8 +569,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-libshadowsocks-libev.la: $(libshadowsocks_libev_la_OBJECTS) $(libshadowsocks_libev_la_DEPENDENCIES) $(EXTRA_libshadowsocks_libev_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(libshadowsocks_libev_la_LINK) -rpath $(libdir) $(libshadowsocks_libev_la_OBJECTS) $(libshadowsocks_libev_la_LIBADD) $(LIBS)
+libshadowsocksr-libev.la: $(libshadowsocksr_libev_la_OBJECTS) $(libshadowsocksr_libev_la_DEPENDENCIES) $(EXTRA_libshadowsocksr_libev_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(libshadowsocksr_libev_la_LINK) -rpath $(libdir) $(libshadowsocksr_libev_la_OBJECTS) $(libshadowsocksr_libev_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
@@ -621,12 +621,12 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-ss-local$(EXEEXT): $(ss_local_OBJECTS) $(ss_local_DEPENDENCIES) $(EXTRA_ss_local_DEPENDENCIES) 
-	@rm -f ss-local$(EXEEXT)
+ssr-local$(EXEEXT): $(ss_local_OBJECTS) $(ss_local_DEPENDENCIES) $(EXTRA_ss_local_DEPENDENCIES) 
+	@rm -f ssr-local$(EXEEXT)
 	$(AM_V_CCLD)$(ss_local_LINK) $(ss_local_OBJECTS) $(ss_local_LDADD) $(LIBS)
 
-ss-redir$(EXEEXT): $(ss_redir_OBJECTS) $(ss_redir_DEPENDENCIES) $(EXTRA_ss_redir_DEPENDENCIES) 
-	@rm -f ss-redir$(EXEEXT)
+ssr-redir$(EXEEXT): $(ss_redir_OBJECTS) $(ss_redir_DEPENDENCIES) $(EXTRA_ss_redir_DEPENDENCIES) 
+	@rm -f ssr-redir$(EXEEXT)
 	$(AM_V_CCLD)$(ss_redir_LINK) $(ss_redir_OBJECTS) $(ss_redir_LDADD) $(LIBS)
 install-binSCRIPTS: $(bin_SCRIPTS)
 	@$(NORMAL_INSTALL)
@@ -670,19 +670,19 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-acl.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-cache.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-encrypt.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-http.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-jconf.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-json.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-local.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-netutils.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-rule.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-tls.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-udprelay.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-utils.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocks_libev_la-win32.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-acl.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-cache.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-encrypt.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-http.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-jconf.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-json.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-local.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-netutils.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-rule.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-tls.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-udprelay.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-utils.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libshadowsocksr_libev_la-win32.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ss_local-acl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ss_local-cache.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ss_local-encrypt.Po@am__quote@
@@ -732,96 +732,96 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-libshadowsocks_libev_la-utils.lo: utils.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-utils.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-utils.Tpo -c -o libshadowsocks_libev_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-utils.Tpo $(DEPDIR)/libshadowsocks_libev_la-utils.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='utils.c' object='libshadowsocks_libev_la-utils.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-utils.lo: utils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-utils.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-utils.Tpo -c -o libshadowsocksr_libev_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-utils.Tpo $(DEPDIR)/libshadowsocksr_libev_la-utils.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='utils.c' object='libshadowsocksr_libev_la-utils.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-utils.lo `test -f 'utils.c' || echo '$(srcdir)/'`utils.c
 
-libshadowsocks_libev_la-jconf.lo: jconf.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-jconf.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-jconf.Tpo -c -o libshadowsocks_libev_la-jconf.lo `test -f 'jconf.c' || echo '$(srcdir)/'`jconf.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-jconf.Tpo $(DEPDIR)/libshadowsocks_libev_la-jconf.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='jconf.c' object='libshadowsocks_libev_la-jconf.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-jconf.lo: jconf.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-jconf.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-jconf.Tpo -c -o libshadowsocksr_libev_la-jconf.lo `test -f 'jconf.c' || echo '$(srcdir)/'`jconf.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-jconf.Tpo $(DEPDIR)/libshadowsocksr_libev_la-jconf.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='jconf.c' object='libshadowsocksr_libev_la-jconf.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-jconf.lo `test -f 'jconf.c' || echo '$(srcdir)/'`jconf.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-jconf.lo `test -f 'jconf.c' || echo '$(srcdir)/'`jconf.c
 
-libshadowsocks_libev_la-json.lo: json.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-json.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-json.Tpo -c -o libshadowsocks_libev_la-json.lo `test -f 'json.c' || echo '$(srcdir)/'`json.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-json.Tpo $(DEPDIR)/libshadowsocks_libev_la-json.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='json.c' object='libshadowsocks_libev_la-json.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-json.lo: json.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-json.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-json.Tpo -c -o libshadowsocksr_libev_la-json.lo `test -f 'json.c' || echo '$(srcdir)/'`json.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-json.Tpo $(DEPDIR)/libshadowsocksr_libev_la-json.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='json.c' object='libshadowsocksr_libev_la-json.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-json.lo `test -f 'json.c' || echo '$(srcdir)/'`json.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-json.lo `test -f 'json.c' || echo '$(srcdir)/'`json.c
 
-libshadowsocks_libev_la-encrypt.lo: encrypt.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-encrypt.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-encrypt.Tpo -c -o libshadowsocks_libev_la-encrypt.lo `test -f 'encrypt.c' || echo '$(srcdir)/'`encrypt.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-encrypt.Tpo $(DEPDIR)/libshadowsocks_libev_la-encrypt.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='encrypt.c' object='libshadowsocks_libev_la-encrypt.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-encrypt.lo: encrypt.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-encrypt.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-encrypt.Tpo -c -o libshadowsocksr_libev_la-encrypt.lo `test -f 'encrypt.c' || echo '$(srcdir)/'`encrypt.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-encrypt.Tpo $(DEPDIR)/libshadowsocksr_libev_la-encrypt.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='encrypt.c' object='libshadowsocksr_libev_la-encrypt.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-encrypt.lo `test -f 'encrypt.c' || echo '$(srcdir)/'`encrypt.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-encrypt.lo `test -f 'encrypt.c' || echo '$(srcdir)/'`encrypt.c
 
-libshadowsocks_libev_la-udprelay.lo: udprelay.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-udprelay.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-udprelay.Tpo -c -o libshadowsocks_libev_la-udprelay.lo `test -f 'udprelay.c' || echo '$(srcdir)/'`udprelay.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-udprelay.Tpo $(DEPDIR)/libshadowsocks_libev_la-udprelay.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='udprelay.c' object='libshadowsocks_libev_la-udprelay.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-udprelay.lo: udprelay.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-udprelay.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-udprelay.Tpo -c -o libshadowsocksr_libev_la-udprelay.lo `test -f 'udprelay.c' || echo '$(srcdir)/'`udprelay.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-udprelay.Tpo $(DEPDIR)/libshadowsocksr_libev_la-udprelay.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='udprelay.c' object='libshadowsocksr_libev_la-udprelay.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-udprelay.lo `test -f 'udprelay.c' || echo '$(srcdir)/'`udprelay.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-udprelay.lo `test -f 'udprelay.c' || echo '$(srcdir)/'`udprelay.c
 
-libshadowsocks_libev_la-cache.lo: cache.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-cache.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-cache.Tpo -c -o libshadowsocks_libev_la-cache.lo `test -f 'cache.c' || echo '$(srcdir)/'`cache.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-cache.Tpo $(DEPDIR)/libshadowsocks_libev_la-cache.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='cache.c' object='libshadowsocks_libev_la-cache.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-cache.lo: cache.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-cache.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-cache.Tpo -c -o libshadowsocksr_libev_la-cache.lo `test -f 'cache.c' || echo '$(srcdir)/'`cache.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-cache.Tpo $(DEPDIR)/libshadowsocksr_libev_la-cache.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='cache.c' object='libshadowsocksr_libev_la-cache.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-cache.lo `test -f 'cache.c' || echo '$(srcdir)/'`cache.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-cache.lo `test -f 'cache.c' || echo '$(srcdir)/'`cache.c
 
-libshadowsocks_libev_la-acl.lo: acl.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-acl.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-acl.Tpo -c -o libshadowsocks_libev_la-acl.lo `test -f 'acl.c' || echo '$(srcdir)/'`acl.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-acl.Tpo $(DEPDIR)/libshadowsocks_libev_la-acl.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='acl.c' object='libshadowsocks_libev_la-acl.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-acl.lo: acl.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-acl.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-acl.Tpo -c -o libshadowsocksr_libev_la-acl.lo `test -f 'acl.c' || echo '$(srcdir)/'`acl.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-acl.Tpo $(DEPDIR)/libshadowsocksr_libev_la-acl.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='acl.c' object='libshadowsocksr_libev_la-acl.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-acl.lo `test -f 'acl.c' || echo '$(srcdir)/'`acl.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-acl.lo `test -f 'acl.c' || echo '$(srcdir)/'`acl.c
 
-libshadowsocks_libev_la-netutils.lo: netutils.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-netutils.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-netutils.Tpo -c -o libshadowsocks_libev_la-netutils.lo `test -f 'netutils.c' || echo '$(srcdir)/'`netutils.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-netutils.Tpo $(DEPDIR)/libshadowsocks_libev_la-netutils.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='netutils.c' object='libshadowsocks_libev_la-netutils.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-netutils.lo: netutils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-netutils.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-netutils.Tpo -c -o libshadowsocksr_libev_la-netutils.lo `test -f 'netutils.c' || echo '$(srcdir)/'`netutils.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-netutils.Tpo $(DEPDIR)/libshadowsocksr_libev_la-netutils.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='netutils.c' object='libshadowsocksr_libev_la-netutils.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-netutils.lo `test -f 'netutils.c' || echo '$(srcdir)/'`netutils.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-netutils.lo `test -f 'netutils.c' || echo '$(srcdir)/'`netutils.c
 
-libshadowsocks_libev_la-local.lo: local.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-local.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-local.Tpo -c -o libshadowsocks_libev_la-local.lo `test -f 'local.c' || echo '$(srcdir)/'`local.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-local.Tpo $(DEPDIR)/libshadowsocks_libev_la-local.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='local.c' object='libshadowsocks_libev_la-local.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-local.lo: local.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-local.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-local.Tpo -c -o libshadowsocksr_libev_la-local.lo `test -f 'local.c' || echo '$(srcdir)/'`local.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-local.Tpo $(DEPDIR)/libshadowsocksr_libev_la-local.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='local.c' object='libshadowsocksr_libev_la-local.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-local.lo `test -f 'local.c' || echo '$(srcdir)/'`local.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-local.lo `test -f 'local.c' || echo '$(srcdir)/'`local.c
 
-libshadowsocks_libev_la-http.lo: http.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-http.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-http.Tpo -c -o libshadowsocks_libev_la-http.lo `test -f 'http.c' || echo '$(srcdir)/'`http.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-http.Tpo $(DEPDIR)/libshadowsocks_libev_la-http.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='http.c' object='libshadowsocks_libev_la-http.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-http.lo: http.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-http.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-http.Tpo -c -o libshadowsocksr_libev_la-http.lo `test -f 'http.c' || echo '$(srcdir)/'`http.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-http.Tpo $(DEPDIR)/libshadowsocksr_libev_la-http.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='http.c' object='libshadowsocksr_libev_la-http.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-http.lo `test -f 'http.c' || echo '$(srcdir)/'`http.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-http.lo `test -f 'http.c' || echo '$(srcdir)/'`http.c
 
-libshadowsocks_libev_la-tls.lo: tls.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-tls.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-tls.Tpo -c -o libshadowsocks_libev_la-tls.lo `test -f 'tls.c' || echo '$(srcdir)/'`tls.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-tls.Tpo $(DEPDIR)/libshadowsocks_libev_la-tls.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='tls.c' object='libshadowsocks_libev_la-tls.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-tls.lo: tls.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-tls.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-tls.Tpo -c -o libshadowsocksr_libev_la-tls.lo `test -f 'tls.c' || echo '$(srcdir)/'`tls.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-tls.Tpo $(DEPDIR)/libshadowsocksr_libev_la-tls.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='tls.c' object='libshadowsocksr_libev_la-tls.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-tls.lo `test -f 'tls.c' || echo '$(srcdir)/'`tls.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-tls.lo `test -f 'tls.c' || echo '$(srcdir)/'`tls.c
 
-libshadowsocks_libev_la-rule.lo: rule.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-rule.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-rule.Tpo -c -o libshadowsocks_libev_la-rule.lo `test -f 'rule.c' || echo '$(srcdir)/'`rule.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-rule.Tpo $(DEPDIR)/libshadowsocks_libev_la-rule.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='rule.c' object='libshadowsocks_libev_la-rule.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-rule.lo: rule.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-rule.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-rule.Tpo -c -o libshadowsocksr_libev_la-rule.lo `test -f 'rule.c' || echo '$(srcdir)/'`rule.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-rule.Tpo $(DEPDIR)/libshadowsocksr_libev_la-rule.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='rule.c' object='libshadowsocksr_libev_la-rule.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-rule.lo `test -f 'rule.c' || echo '$(srcdir)/'`rule.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-rule.lo `test -f 'rule.c' || echo '$(srcdir)/'`rule.c
 
-libshadowsocks_libev_la-win32.lo: win32.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocks_libev_la-win32.lo -MD -MP -MF $(DEPDIR)/libshadowsocks_libev_la-win32.Tpo -c -o libshadowsocks_libev_la-win32.lo `test -f 'win32.c' || echo '$(srcdir)/'`win32.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocks_libev_la-win32.Tpo $(DEPDIR)/libshadowsocks_libev_la-win32.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='win32.c' object='libshadowsocks_libev_la-win32.lo' libtool=yes @AMDEPBACKSLASH@
+libshadowsocksr_libev_la-win32.lo: win32.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -MT libshadowsocksr_libev_la-win32.lo -MD -MP -MF $(DEPDIR)/libshadowsocksr_libev_la-win32.Tpo -c -o libshadowsocksr_libev_la-win32.lo `test -f 'win32.c' || echo '$(srcdir)/'`win32.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libshadowsocksr_libev_la-win32.Tpo $(DEPDIR)/libshadowsocksr_libev_la-win32.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='win32.c' object='libshadowsocksr_libev_la-win32.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocks_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocks_libev_la-win32.lo `test -f 'win32.c' || echo '$(srcdir)/'`win32.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libshadowsocksr_libev_la_CFLAGS) $(CFLAGS) -c -o libshadowsocksr_libev_la-win32.lo `test -f 'win32.c' || echo '$(srcdir)/'`win32.c
 
 ss_local-utils.o: utils.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ss_local_CFLAGS) $(CFLAGS) -MT ss_local-utils.o -MD -MP -MF $(DEPDIR)/ss_local-utils.Tpo -c -o ss_local-utils.o `test -f 'utils.c' || echo '$(srcdir)/'`utils.c

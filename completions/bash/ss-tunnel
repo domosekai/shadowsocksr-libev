@@ -35,4 +35,4 @@ _ss_tunnel()
     return 0
 }
 
-complete -F _ss_tunnel ss-tunnel
+complete -F _ss_tunnel ssr-tunnel

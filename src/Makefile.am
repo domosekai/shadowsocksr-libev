@@ -21,10 +21,10 @@ SS_COMMON_LIBS += $(top_builddir)/libev/libev.la \
                   $(top_builddir)/libsodium/src/libsodium/libsodium.la
 endif
 
-bin_PROGRAMS = ss-local
-#bin_PROGRAMS += ss-tunnel
+bin_PROGRAMS = ssr-local
+#bin_PROGRAMS += ssr-tunnel
 if !BUILD_WINCOMPAT
-#bin_PROGRAMS += ss-server ss-manager
+#bin_PROGRAMS += ssr-server ssr-manager
 endif
 
 sni_src = http.c \
@@ -93,8 +93,8 @@ ss_local_SOURCES += win32.c
 endif
 
 if BUILD_REDIRECTOR
-bin_SCRIPTS = ss-nat
-bin_PROGRAMS += ss-redir
+bin_SCRIPTS = ssr-nat
+bin_PROGRAMS += ssr-redir
 ss_redir_SOURCES = utils.c \
                    jconf.c \
                    json.c \
@@ -113,9 +113,9 @@ ss_redir_LDADD += $(top_builddir)/libudns/libudns.la
 endif
 endif
 
-lib_LTLIBRARIES = libshadowsocks-libev.la
-libshadowsocks_libev_la_SOURCES = $(ss_local_SOURCES)
-libshadowsocks_libev_la_CFLAGS = $(ss_local_CFLAGS) -DLIB_ONLY
-libshadowsocks_libev_la_LDFLAGS = -version-info $(VERSION_INFO)
-libshadowsocks_libev_la_LIBADD = $(ss_local_LDADD)
-include_HEADERS = shadowsocks.h
+lib_LTLIBRARIES = libshadowsocksr-libev.la
+libshadowsocksr_libev_la_SOURCES = $(ss_local_SOURCES)
+libshadowsocksr_libev_la_CFLAGS = $(ss_local_CFLAGS) -DLIB_ONLY
+libshadowsocksr_libev_la_LDFLAGS = -version-info $(VERSION_INFO)
+libshadowsocksr_libev_la_LIBADD = $(ss_local_LDADD)
+include_HEADERS = shadowsocksr.h

@@ -1,5 +1,5 @@
 /*
- * tls1.2_ticket.h - Define shadowsocksR server's buffers and callbacks
+ * tls1.2_ticket.h - Define shadowsocksrR server's buffers and callbacks
  *
  * Copyright (C) 2015 - 2017, Break Wa11 <mmgac001@gmail.com>
  */

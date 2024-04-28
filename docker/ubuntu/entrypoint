@@ -1,9 +1,9 @@
 #! /bin/bash
 
-IMAGE_NAME="leesah/shadowsocks-libev"
+IMAGE_NAME="leesah/shadowsocksr-libev"
 PORTNUMBER="8338"
 
-SHADOWSOCKS="/usr/local/bin/ss-server"
+SHADOWSOCKS="/usr/local/bin/ssr-server"
 HOST="-s 0.0.0.0"
 PORT="-p $PORTNUMBER"
 JSON=""
@@ -36,12 +36,12 @@ function print_usage {
 function print_usage_configfile {
   echo "Config file is currently not supported by this image."
   echo
-  echo "See https://github.com/leesah/shadowsocks-libev/issues/1 for current progress."
+  echo "See https://github.com/leesah/shadowsocksr-libev/issues/1 for current progress."
   echo
 }
 
 function print_usage_host {
-  echo "To specify the host on which ss-server should listen, please use"
+  echo "To specify the host on which ssr-server should listen, please use"
   echo "  docker run -p $1::$PORTNUMBER ..."
   echo "or"
   echo "  docker run -p $1:<HOST-PORT>:$PORTNUMBER ..."
@@ -52,7 +52,7 @@ function print_usage_host {
 }
 
 function print_usage_port {
-  echo "To specify the port on which ss-server should listen, please use"
+  echo "To specify the port on which ssr-server should listen, please use"
   echo "  docker run -p $1:$PORTNUMBER ..."
   echo
 }
@@ -93,7 +93,7 @@ if [ -z "$HOST" -o -z "$PORT" -o -z "$PASSWORD" ]; then
   exit 1
 fi
 
-echo "Launching Shadowsocks server..."
+echo "Launching Shadowsocksr server..."
 echo "To watch the output, run"
 echo "  docker ps -ql | xargs docker logs -f"
 $SHADOWSOCKS $HOST $PORT $PASSWORD $ENCRYPTION $TIMEOUT $UDP_RELAY $VERBOSE $FAST_OPEN $ACL $JSON

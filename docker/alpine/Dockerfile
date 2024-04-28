@@ -1,12 +1,12 @@
 #
-# Dockerfile for shadowsocks-libev
+# Dockerfile for shadowsocksr-libev
 #
 
 FROM alpine
 MAINTAINER kev <noreply@datageek.info>
 
 ARG SS_VER=2.5.6
-ARG SS_URL=https://github.com/shadowsocks/shadowsocks-libev/archive/v$SS_VER.tar.gz
+ARG SS_URL=https://github.com/shadowsocksr/shadowsocksr-libev/archive/v$SS_VER.tar.gz
 
 ENV SERVER_ADDR 0.0.0.0
 ENV SERVER_PORT 8388
@@ -35,7 +35,7 @@ RUN set -ex && \
     cd .. && \
 
     runDeps="$( \
-        scanelf --needed --nobanner /usr/bin/ss-* \
+        scanelf --needed --nobanner /usr/bin/ssr-* \
             | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
             | xargs -r apk info --installed \
             | sort -u \
@@ -48,7 +48,7 @@ USER nobody
 
 EXPOSE $SERVER_PORT/tcp $SERVER_PORT/udp
 
-CMD ss-server -s $SERVER_ADDR \
+CMD ssr-server -s $SERVER_ADDR \
               -p $SERVER_PORT \
               -k ${PASSWORD:-$(hostname)} \
               -m $METHOD \
