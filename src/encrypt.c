@@ -32,6 +32,9 @@
 #include <openssl/rand.h>
 #include <openssl/hmac.h>
 #include <openssl/aes.h>
+#if OPENSSL_VERSION_NUMBER >= 0x30000000L
+#include <openssl/provider.h>
+#endif
 
 #elif defined(USE_CRYPTO_POLARSSL)
 
@@ -83,6 +86,30 @@
 #include "cache.h"
 #include "encrypt.h"
 #include "utils.h"
+
+#if defined(USE_CRYPTO_OPENSSL)
+static int initialized;
+
+#if OPENSSL_VERSION_NUMBER >= 0x30000000L
+static OSSL_PROVIDER *ossl_provider_legacy = NULL;
+static OSSL_PROVIDER *ossl_provider_default = NULL;
+#endif
+
+int
+openssl_init(void)
+{
+    if (initialized != 0) {
+        return 1;
+    }
+#if OPENSSL_VERSION_NUMBER >= 0x30000000L
+    ossl_provider_default = OSSL_PROVIDER_load(NULL, "legacy");
+    ossl_provider_legacy = OSSL_PROVIDER_load(NULL, "default");
+#endif
+    initialized = 1;
+
+    return 0;
+}
+#endif
 
 #define OFFSET_ROL(p, o) ((uint64_t)(*(p + o)) << (8 * o))
 
@@ -1422,6 +1449,7 @@ enc_key_init(cipher_env_t *env, int method, const char *pass)
     cache_create(&env->iv_cache, 256, NULL);
 
 #if defined(USE_CRYPTO_OPENSSL)
+    openssl_init();
     OpenSSL_add_all_algorithms();
 #else
     cipher_kt_t cipher_info;
